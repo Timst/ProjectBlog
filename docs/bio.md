@@ -21,3 +21,8 @@ I think there's real joy to be had in *creating stuff*. It's something that ever
 Thank you, that's so kind of you to say! Here's my resume, send me an email!
 
 <embed src="/Timothy_Daniel_Resume.pdf" type="application/pdf" width="100%" height="1000px" />
+
+
+—————
+
+<a target="_blank" href="https://icons8.com/icon/v3uHqgKADmHW/t">Favicon</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>

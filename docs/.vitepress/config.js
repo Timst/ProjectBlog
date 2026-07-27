@@ -9,6 +9,10 @@ export default defineConfig({
   description: "A place for me to yap about things I've been up to",
   lang: "en-US",
   cleanUrls: true,
+  head: [
+    // For standard .ico files
+    ['link', { rel: 'icon', type: 'image/x-icon', href: '/blog/assets/general/favicon.png' }]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
