@@ -3,7 +3,7 @@ title: Making a queuing system for the desert
 date: 2024-08-25T18:33:44.884Z
 tags: [Raspberry Pi, Python, 3D Printing]
 author: Timothy Daniel
-image: blog/assets/phoque/tickets.webp
+image: /phoque/tickets.webp
 ---
 
 Bringing the magic of the DMV to Burning Man
@@ -35,8 +35,7 @@ Note that you strictly speaking don't need to use a thermal receipt printer: any
 
 Here it is in motion:
 
-<video width="100%" controls>
-  <source src="../assets/phoque/phoque.mp4" type="video/mp4">
+<video src="/phoque/phoque.mp4" width="100%" controls>
   Your browser does not support the video tag.
 </video>
 
@@ -71,7 +70,7 @@ This whole codebase is due for a major overhaul, which I have [recently started]
 Phoque v1 ran everything from the same Raspberry Pi, which created some logistical headaches: for example, we would have liked the guest button to be at the front of the camp, while the calling button is by the cooking station, but that just wasn't easily feasible. For the number screen, we used a wireless HDMI thing, but that was rickety as hell. And then the client/server model used for said screen was also ridiculous (the site with the numbers ran off a Flask server, and then used [htmx](https://htmx.org/) to refresh itself). This is an attempt to make this a cleaner, fully distributed system. Diagram:
 
 <figure>
-  <img src="../assets/phoque/phoque_schema.webp" alt="System diagram of the new Phoque">
+  <img src="/phoque/phoque_schema.webp" alt="System diagram of the new Phoque">
 </figure>
 
 This will work with independent packages that can be installed on multiple Raspberry Pis, all networked together. It could work over wifi, but I'm thinking that it will instead run over Ethernet, which will allow me to use [PoE](https://en.wikipedia.org/wiki/Power_over_Ethernet) to power the Pis. Doing this requires a little bit of additional hardware (such as a [PoE switch](https://www.amazon.com/dp/B076PRM2C5) and [PoE splitters](https://www.amazon.com/dp/B09GM8FB3X) which separate the data and power outputs), but it will be more reliable than wireless, and I need to run wires to the Pis to power them anyway.
@@ -81,7 +80,7 @@ This will work with independent packages that can be installed on multiple Raspb
 Another thing I want to improve on is the display. That TV I paid $30 for is, if you can believe it, not bright enough to work in the desert in August. So I've been working on making an outdoor display with LED matrices:
 
 <figure>
-  <img src="../assets/phoque/numbers.webp" alt="New display">
+  <img src="/phoque/numbers.webp" alt="New display">
 </figure>
 
 These are four [P10 outdoor LED modules](https://sci-supply.com/p10-full-color-outdoor-led-module/) wired together and screwed to a sheet of plywood. You can control them through a board like the [Adafruit RGB Matrix Bonnet](https://www.adafruit.com/product/3211). In code, the undisputed king of LED module controllers is Henner Zeller and his [rpi-rgb-led-matrix](https://github.com/hzeller/rpi-rgb-led-matrix) library, which is built in C++ but offers python bindings. Figuring out the correct config for your board takes some doing, but once you get there, controlling it from code is a breeze.

@@ -3,7 +3,7 @@ title: Growing an orange tree in my bathtub
 date: 2025-01-25T18:33:44.884Z
 tags: [Raspberry Pi, Python, Gardening]
 author: Timothy Daniel
-image: blog/assets/bathtub/bathtub.webp
+image: /bathtub/bathtub.webp
 ---
 
 How I went about trying to grow citrus in my bathtub, something which is both normal to want and possible to achieve
@@ -24,7 +24,7 @@ Therefore, the only logical solution (as “not doing this” is of course not a
 This is the story of how I ended up with this setup:
 
 <figure>
-  <img src="../assets/bathtub/bathtub.webp" alt="Picture of my indoor citrus growing operation. Two plants are in a bathtub, with a sunlamp and a bunch of wires above">
+  <img src="/bathtub/bathtub.webp" alt="Picture of my indoor citrus growing operation. Two plants are in a bathtub, with a sunlamp and a bunch of wires above">
   <figcaption>Very normal, very cool!</figcaption>
 </figure>
 
@@ -36,7 +36,7 @@ So I wanted to grow some citrus indoors, right, but I also wanted it to be Smart
 I got a navel orange tree from local nursery [Swanson’s](https://www.swansonsnursery.com/), and then I reviewed what I had on hand. I had a growing light bulb that I got “just in case” at plant store sale and which I had never used. So my initial plan was to get a light fixture, mod it slightly so that it can plug into the wall, and suspend it from the ceiling of my utility room. I added a small space heater for warmth (my utility room is usually around 65F/18C, which is too cold for an orange tree), a basic humidifier, and here we go:
 
 <figure>
-  <img src="../assets/bathtub/initial.webp" alt="Picture of my orange tree in my basement">
+  <img src="/bathtub/initial.webp" alt="Picture of my orange tree in my basement">
 </figure>
 
 But there were a couple of issues with this setup:
@@ -51,7 +51,7 @@ So I got a second tree (a [meyer lemon](https://bsky.app/profile/threadotweets.b
 I was also underwhelmed by my old grow light, so I ordered a [150W Mars Hydro grow light](https://www.amazon.com/dp/B07PLY1WKK), and the light output went from “old candle” to “a camera flash that never ends”:
 
 <figure>
-  <img src="../assets/bathtub/light.webp" alt="The bathtub, with a better light">
+  <img src="/bathtub/light.webp" alt="The bathtub, with a better light">
   <figcaption>Now we're cooking with crisco</figcaption>
 </figure>
 
@@ -62,7 +62,7 @@ Moving to the bathroom also opened up the exciting possibility of automated irri
 I dipped my toe in the water (haha, jokes) by building a thing to automatically fill up the humidifier tank:
 
 <figure>
-  <img src="../assets/bathtub/humidifier.webp" alt="Humidifier setup">
+  <img src="/bathtub/humidifier.webp" alt="Humidifier setup">
   <figcaption>Note that this is a different humidifier than on the last pic: I swapped my cheapo device for a [Levoitt smart humidifier](https://www.amazon.com/dp/B0C4GHYH2M), which can be controlled remotely, which might or might not come in handy later.</figcaption>
 </figure>
 
@@ -88,7 +88,7 @@ Then I needed to be able to control when the power is on and off. For this you n
 I’m going to steal this circuit diagram from the Amazon listing:
 
 <figure>
-  <img src="../assets/bathtub/circuit.webp" alt="How to wire your relay">
+  <img src="/bathtub/circuit.webp" alt="How to wire your relay">
 </figure>
 
 You power the relay from the Pi (or Arduino on that pic), then you have a control wire on the “In” input, and then on the other side, you make a circuit between the power supply (which in my case is the 12V charger), the load (the valve), and the relay. When you feed the “in” pin with a tiny bit of power, the relay closes the circuit, and the current (both electrical, and, in our case, aquatic) flows.
@@ -108,7 +108,7 @@ What was significantly less delightful was that the solenoid valve uses traditio
 The plumbing is pretty simple besides that: I removed the shower head, and connected a long pipe to a tee that feeds both valves. Then there is a tap after each valve to reduce the flow and orient it a bit, which you can kinda see on this picture but not really:
 
 <figure>
-  <img src="../assets/bathtub/T-junction.webp" alt="Watering setup">
+  <img src="/bathtub/T-junction.webp" alt="Watering setup">
   <figcaption>Note the gravel trays under the pots, which is a good way to absorb extra water while retaining humidity, and also to start your very own mold farm.</figcaption>
 </figure>
 
@@ -118,7 +118,7 @@ As I mentioned, this is all Python, which is really the best language for this s
 I have two [soil humidity sensors](https://www.amazon.com/ECOWITT-Moisture-Sensor-Humidity-Tester/dp/B07JM621R3/) and a [leak detector](https://www.amazon.com/dp/B0896XJCGC) from Ecowitt, which is a brand of cheap weather sensors. I have a whole bunch of their stuff by now: multiple temp/humidity sensors (including one in the bathroom), a wind/rain/sun outdoors station, an AQI/CO2 sensor, three soil sensors, and two leak detectors. This gives me a good amount of info on my home:
 
 <figure>
-  <img src="../assets/bathtub/ecowitt.webp" alt="Ecowitt dashboard that shows temperature, humidity, pressure etc figures for various rooms">
+  <img src="/bathtub/ecowitt.webp" alt="Ecowitt dashboard that shows temperature, humidity, pressure etc figures for various rooms">
 </figure>
 
 Ecowitt has an [API](https://doc.ecowitt.net/web/#/apiv3en?page_id=1), although you have to call their servers to get data instead of being able to make local calls. There’s almost certainly a way to get the data locally, which would improve reliability, but I haven’t looked into it yet.
@@ -197,20 +197,20 @@ Most everything can be configured with a .ini file (example included in the repo
 I just finished setting everything up together, so I’m going to have to wait a bit to see how it performs. So far the plants seem to be enjoying it though! Look at all these flowers!
 
 <figure>
-  <img src="../assets/bathtub/lemon.webp" alt="Close up on the lemon flowers">
+  <img src="/bathtub/lemon.webp" alt="Close up on the lemon flowers">
 </figure>
 
 That’s the lemon tree, which fired the first shot when it came to flowering. One of its first flowers is already well on its way to turn into a fruit:
 
 <figure>
-  <img src="../assets/bathtub/light.webp" alt="Close up on baby lemon">
+  <img src="/bathtub/light.webp" alt="Close up on baby lemon">
   <figcaption>The miracle of life, everybody</figcaption>
 </figure>
 
 The orange tree only has a single flower so far, but it also has a ton of new leaf growth, which is probably healthy:
 
 <figure>
-  <img src="../assets/bathtub/leaves.webp" alt="Orange leaves">
+  <img src="/bathtub/leaves.webp" alt="Orange leaves">
 </figure>
 
 At this point we’re leaving the realm of technology and entering that of gardening. There is probably stuff I’m supposed to do here to improve yields, like pruning leaves and fertilizing and whatnot. I’ll have to research all that: all I know for now is that citrus like light, heat, and humidity, and now that I’ve turned my bathroom into Florida, they have it.
@@ -221,7 +221,7 @@ My next move is going to be to set up a camera to either do a livefeed or at lea
 I also want more fine-grained control of the heat and humidity. Right now I’m relying on the onboard thermostat/humidistat of the heater and humidifier, and it makes for a pretty unstable atmosphere:
 
 <figure>
-  <img src="../assets/bathtub/heat.webp" alt="Chart of temperature and humidity for the room">
+  <img src="/bathtub/heat.webp" alt="Chart of temperature and humidity for the room">
 </figure>
 
 The plants probably don’t mind too much, but it would be nice to be able to control that stuff directly. Also the humidifier isn’t on the smart plug circuit, so I’m not able to emergency stop it, which is too bad because it’s literally in the bathtub and powered by a 110V cord, thereby making it win the coveted “Most Likely To Start A Fire” award.

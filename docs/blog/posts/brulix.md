@@ -3,7 +3,7 @@ title: Building a beating heart out of plastic and radio chips
 date: 2022-08-25T18:33:44.884Z
 tags: [Raspberry Pi, 3D Printing, Python, Android]
 author: Timothy Daniel
-image: blog/assets/brulix/hearts.webp
+image: /brulix/hearts.webp
 ---
 
 Or: my brief career as an interactive artist
@@ -29,21 +29,21 @@ Our first idea for the project was a personal device that you would carry with y
 
 
 <figure>
-  <img src="../assets/brulix/brulix1.webp" alt="A sample personal device">
+  <img src="/brulix/brulix1.webp" alt="A sample personal device">
   <figcaption>A ‘personal’ device</figcaption>
 </figure>
 
 The second and arguably more interesting application was our “offering” to the playa. Participants to Burning Man are encouraged to bring something that they’ve made (usually) and share it with others (“**Gifting**” is another core principle). Our concept here was to make pairs of heart-shaped boxes. The hearts would talk to each other and track the other heart’s position. Using this information, a screen would tell the heart’s owner about how far the other heart currently is (we would measure the distance as beats per minute rather than as feet or meters, from 40 bpm (far) to 250 bpm (very close)). In addition, we had a vibration engine to make the heart buzz at that rate, adding tactile feedback to the experience.
 
 <figure>
-  <img src="../assets/brulix/heart1.webp" alt="One of the heart devices">
+  <img src="/brulix/heart1.webp" alt="One of the heart devices">
   <figcaption>A ‘beating’ heart</figcaption>
 </figure>
 
 Designing and building this device turned out to be slightly more complicated given the increased number of components, and the heartistic shape. To save space we decided to put components on both the front and the back wall, which made assembling it much harder. Look at the following picture and try to imagine if everything fits once closed (it does, but barely).
 
 <figure>
-  <img src="../assets/brulix/openheart.webp" alt="Heart components view">
+  <img src="/brulix/openheart.webp" alt="Heart components view">
   <figcaption>The insides of a heart</figcaption>
 </figure>
 
@@ -64,7 +64,7 @@ Basically every component required extensive research and testing. We eventually
 After briefly considering getting off-the-shelf cases, we realized that it would be better to make our own. We had access to a shared maker space with a 3D printer, so I downloaded Fusion360 and, after some confusion, managed to make a serviceable box, which we then iterated on at least 60 times until reaching this:
 
 <figure>
-  <img src="../assets/brulix/brulix2.webp" alt="Different version of the personal device case">
+  <img src="/brulix/brulix2.webp" alt="Different version of the personal device case">
   <figcaption>A few iterations of the case design</figcaption>
 </figure>
 
@@ -120,7 +120,7 @@ Now, it’s hard to replicate Burning Man’s conditions in the default world, e
 So how did it all work out in the end? Quite poorly. The observed range was closer to a 300m radius around our camp, so a tenth of what we had seen in tests. That sort of range would work for the hearts project (any longer range would have been impracticably difficult anyway), but it made the personal devices a lot less useful.
 
 <figure>
-  <img src="../assets/brulix/brulix2.webp" alt="Radio range diagram">
+  <img src="/brulix/brulix2.webp" alt="Radio range diagram">
   <figcaption>In blue: estimated range. In red: actual range.</figcaption>
 </figure>
 

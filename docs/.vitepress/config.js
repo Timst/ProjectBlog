@@ -11,7 +11,7 @@ export default defineConfig({
   cleanUrls: true,
   head: [
     // For standard .ico files
-    ['link', { rel: 'icon', type: 'image/x-icon', href: '/blog/assets/general/favicon.png' }]
+    ['link', { rel: 'icon', type: 'image/x-icon', href: '/general/favicon.png' }]
   ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config

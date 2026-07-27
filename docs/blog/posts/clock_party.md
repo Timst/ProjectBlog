@@ -3,7 +3,7 @@ title: Inventing a new type of party
 date: 2017-02-19T18:33:44.884Z
 tags: [JavaScript, Philips Hue]
 author: Timothy Daniel
-image: blog/assets/clock/clock_tray.webp
+image: /clock/clock_tray.webp
 ---
 
 When you want to find a party theme, go to a random word generator, get "clock" and try to make the best of it
@@ -156,7 +156,7 @@ ctx.stroke();
 ```
 
 <figure>
-  <img src="../assets/clock/circle.webp" alt="Circle with the bottom right quarter highlighted">
+  <img src="/clock/circle.webp" alt="Circle with the bottom right quarter highlighted">
 </figure>
 
 Which is to say, compared to a regular clock, everything is shifted 90°. Not ideal. I'll have to do some adjustments.
@@ -214,7 +214,7 @@ function getStrokeSize() {
 And that's about it. Does it work? Yeah it does. Check this out:
 
 <figure>
-  <img src="../assets/clock/party.webp" alt="Party picture">
+  <img src="/clock/party.webp" alt="Party picture">
 </figure>
 
 This is just before the time is up. Exciting!!!

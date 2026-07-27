@@ -5,7 +5,7 @@ I'm Timothy Daniel, a guy who lives in Seattle, WA. Previously, I lived in Franc
 In my free time I like to work on little projects, which you are now bearing witness to.
 
 <span style="width:100%;display:flex;justify-content: center;">
-  <img src="/blog/assets/general/photo.webp" alt="Picture of me" style="width:300px;height:300px;border-radius: 50%;object-fit: cover;">
+  <img src="/general/photo.webp" alt="Picture of me" style="width:300px;height:300px;border-radius: 50%;object-fit: cover;">
   </span>
 
 ## Who are you?

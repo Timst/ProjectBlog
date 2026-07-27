@@ -1,6 +1,6 @@
 ---
 name: Timothy Daniel
-avatar: /blog/assets/general/photo.webp
+avatar: /general/photo.webp
 ---
 
 ## Timothy Daniel

@@ -3,7 +3,7 @@ title: Making a Discord bot to encourage donut overconsumption
 date: 2026-01-15T18:33:44.884Z
 tags: [Web Service, Python, Discord, AI]
 author: Timothy Daniel
-image: blog/assets/donut/donut-time.webp
+image: /donut/donut-time.webp
 ---
 
 Finally, getting rewarded for indulging
@@ -85,7 +85,7 @@ So this is how the system works: when people post a picture, and unless they inc
 Right, so that's this problem sorted: people post pics of donuts, they get counted automatically. They can call `/top` to get the leaderboard. Ok, maybe I'll make it so that instead of having to query the top every time, you can create a self-updating leaderboard that gets refreshed every time someone's score changes. Call it `/autotop`. Right, right. Well, going back to this calorie talk earlier, maybe, just for fun, I'll add a `/stats` feature that gives you some fun facts about your diet:
 
 <figure>
-  <img src="../assets/donut/stats.webp" alt="/stats output">
+  <img src="/donut/stats.webp" alt="/stats output">
   <figcaption>Look on my work, ye mighty, and despair</figcaption>
 </figure>
 
@@ -94,14 +94,14 @@ Right, so that's this problem sorted: people post pics of donuts, they get count
 Ok, cool. Say, since we're predicting the future, might as well make a nice chart out of it, yeah? At first I made one that shows the evolution of the score so far:
 
 <figure>
-  <img src="../assets/donut/chart.webp" alt="Historical chart">
+  <img src="/donut/chart.webp" alt="Historical chart">
   <figcaption>Yes, I'm the Tim on there. God forbid a man has a hobby</figcaption>
 </figure>
 
 To make a trendline that's more than a simple linear projection, I recruited local physics PhD, data scientist and all around genius Kim, who made a nice Math Thing™ to predict my inevitable triumph:
 
 <figure>
-  <img src="../assets/donut/trendline.webp" alt="Chart with trendline">
+  <img src="/donut/trendline.webp" alt="Chart with trendline">
   <figcaption>References are available upon requests</figcaption>
 </figure>
 
@@ -110,7 +110,7 @@ To make a trendline that's more than a simple linear projection, I recruited loc
 That's the statistics side of things well explored. What else? Maybe we can do something more with the pictures? Sure thing, check out `/board`:
 
 <figure>
-  <img src="../assets/donut/donutboard.webp" alt="Donuts in a board view">
+  <img src="/donut/donutboard.webp" alt="Donuts in a board view">
 </figure>
 
 This one was fun to make. There were a couple of things to figure out: first, up until now, I hadn't dealt with the images directly. I just fed Discord's URL as a reference to the AI model. I would now have to download and save the pictures. Now the thing is, even after Discord's compression and webp conversion, these could still be pretty large, and for our purposes (making a collage of donut pics), we didn't exactly need 8K resolution. So I set it to save the picture as 800x800 px thumbnails. This in turn brought up the issue of aspect ratio: some pics are in landscape mode, others in portrait, there are different resolutions, etc. I ended up resizing the smallest side to 800px, and then cropping everything but the center.
