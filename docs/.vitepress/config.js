@@ -17,7 +17,7 @@ export default defineConfig({
     const head = []
 
     const coverPath = pageData.frontmatter.image || '/general/photo.webp'
-    const fullImageUrl = `${SITE_URL}${coverPath}`
+    const fullImageUrl = `https://timothy-daniel.com${coverPath}`
 
     head.push(['meta', { property: 'og:image', content: fullImageUrl }])
     head.push(['meta', { property: 'og:image:width', content: '1200' }])
