@@ -16,12 +16,12 @@ See the code on GitHub:
 * [Phoque v2 (WIP)](https://github.com/Timst/Phoque2)
 :::
 
-A smaller project that I made ahead of my first time at Burning Man, aside from the much more complicated [Brulix](brulix.md) system, was a queuing system for our camp, which served phở. Hence, **Phoque**, a combination of pho and queue. Which yes, combines poorly. Also, phoque means sealion in French. This doesn't matter at all but it's something. Also, the pho angle is no longer relevant, as I now co-lead a camp that makes crêpes, but whatever, I'm keeping the name.
+A smaller project that I made ahead of my first time at [Burning Man](https://en.wikipedia.org/wiki/Burning_Man), aside from the much more complicated [Brulix](brulix.md) system, was a queuing system for our camp, which served phở. Hence, **Phoque**, a combination of pho and queue. Which yes, combines poorly. Also, phoque means sealion in French. This doesn't matter at all, but it's something. Also, the pho angle is no longer relevant, as I now co-lead a [camp that makes crêpes](https://directory.burningman.org/camps/872/), but whatever, I'm keeping the name.
 
 If you haven't been to Burning Man, or even if you have, it might not be immediately obvious what the benefits of a queue organization system could be. In fact, many camps don't bother at all, and just have people form a line and wait for their turn. Now the thing is, in our case that wait can be as long as an hour. I don't know if you've ever waited one hour under a 100°F sun while very hungry, but I have, and let me tell you that it is not fun. Hence, this thing.
 
 ## What it do?
-This is a comprehensive (read: over-engineered) line management system. Here's the workflow:
+This is a sligtly over-engineered line management system. Here's the workflow:
 
 * People slam a big red button (I'll go over the hardware later)
 * This takes a picture of them on a webcam, and prints it on a receipt along with a number
@@ -40,22 +40,30 @@ Here it is in motion:
 </video>
 
 ## Hardware
-This is meant to run on a Raspberry Pi. I've been using a Pi 4B, this would likely also work on a 5 or on an older Pi.
+This is meant to run on a Raspberry Pi. I've been using a Pi 4B, which works alright, but in the future I'll probably switch to a 5.
 
-Besides that, the big items you'll need if you want to build this at home is a button ([this](https://www.amazon.com/gp/product/B00XRC9URW/) is the one I use), a webcam (anything will do, I use this logitech cam that everybody has), a thermal receipt printer (that's the most specialized and expensive piece of kit; I use [this MUNBYN printer](https://www.amazon.com/dp/B0779WGYHS)), a keyboard, and maybe a couple of screens. For the backoffice, I use a [tiny display](https://www.amazon.com/dp/B09MFNLRQQ?th=1) meant specifically to work with Raspberry Pi. For the large number display, I got a cheap TV off FB Marketplace. I also use a [mini 4-key keyboard](https://www.amazon.com/dp/B093WJ38D9) for the queue controls (call the next number, skip it, reset the count, etc.)
+Besides that, the big items you'll need if you want to build this at home are
+- A button ([this](https://www.amazon.com/gp/product/B00XRC9URW/) is the one I use)
+- A webcam (anything will do, I use this logitech cam that everybody has)
+- A thermal receipt printer (that's the most specialized and expensive piece of kit; I use [this MUNBYN printer](https://www.amazon.com/dp/B0779WGYHS))
+- A couple of screens.
+ - For the backoffice, I use a [tiny display](https://www.amazon.com/dp/B09MFNLRQQ?th=1) meant specifically to work with Raspberry Pi.
+ - For the large number display, I got a cheap TV off FB Marketplace. These has limitations, as we'll discuss later
+- I also use a [mini 4-key keyboard](https://www.amazon.com/dp/B093WJ38D9) for the queue controls (call the next number, skip it, reset the count, etc.)
+- All sorts of connection hardware. I use a wireless HDMI transmitter/receiver for the display screen so that we can place it away from the rest of the system (which is one of the few parts that can be physically separated from the whole, a problem we will also discuss later)
 
 [Here](https://docs.google.com/document/d/1qJzJxlinTLHUv-rM7RpuQfxlVQy0EvKh1EnHSkjROCY/edit?usp=sharing) are the complete "schematics" (more of a guide to putting everything together) that lists everything you need, complete with a diagram and step-by-step instructions.
 
 ## Setting up
 This is once again a primarily Python-based project. You can start by installing the required Python packages by doing `pip install -r requirements.txt`. Then you can run it by doing `python3 phoque.py`, at which point it will almost certainly not work. You probably need to export a display variable or something.
 
-On top of the various processes to start the camera etc, the system launches a server with two endpoints: `localhost:5000/public` is the public facing screen that shows the current called number and estimated wait (based on averaging the wait over the last 15 crêpes); `localhost:5000/admin` is the backoffice screen with more details, like average time per crêpe, queue depth, etc.
+On top of the various processes to start the camera etc, the system launches a [Flask](https://flask.palletsprojects.com/en/stable/) server with two endpoints: `localhost:5000/public` is the public facing screen that shows the current called number and estimated wait (based on averaging the wait over the last 15 crêpes); `localhost:5000/admin` is the backoffice screen with more details, like average time per crêpe, queue depth, etc.
 
 The system also listens for keystrokes, so careful with what you do once it's running. Here are the keys:
 
 * `d` calls the next number. It increments the current number and makes the audio call
 * `f` calls the current number again. People never pay attention to anything, so you'll be using this a lot.
-* Maintaining `g` for 2s+ switches between different modes. There are four: "open" (standard mode), "last call" (works like the standard mode, but the public screen shows a flashing message that the line is about to close), "finishing" (people can't get new tickets, but you can still call old ones), and "closed" (the whole system is suspended)
+* Maintaining `g` for 2s+ switches between different system states. There are four: "open" (standard mode), "last call" (works like the standard mode, but the public screen shows a flashing message that the line is about to close), "finishing" (people can't get new tickets, but you can still call old ones), and "closed" (the whole system is suspended)
 * Maintaining `h` for 2s+ resets the count to 0. This is non-destructive: internally this starts a new session, but old numbers are still saved in DB.
 
 Again, I use this 4-key mini keyboard, configured to assign one of these letters to each physical key. I then printed some labels, and voilà.

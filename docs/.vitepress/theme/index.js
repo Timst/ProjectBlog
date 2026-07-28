@@ -3,6 +3,9 @@ import CustomVPBHome from './components/CustomVPBHome.vue';
 import './style.css';
 import CustomVPBHomePost from './components/CustomVPBHomePost.vue';
 import { usePosts } from './composables/usePosts.js';
+import { onMounted, watch, nextTick } from 'vue'
+import { useRoute } from 'vitepress'
+import mediumZoom from 'medium-zoom'
 
 export { usePosts } from './composables/usePosts.js';
 
@@ -11,5 +14,23 @@ export default {
   enhanceApp({ app, router, siteData }) {
     app.component('VPBHome', CustomVPBHome)
     app.component('VPBHomePost', CustomVPBHomePost)
+  },
+  setup() {
+    const route = useRoute()
+
+    const initZoom = () => {
+      mediumZoom('.vp-doc img', {
+        background: 'var(--vp-c-bg)'
+      })
+    }
+
+    onMounted(() => {
+      initZoom()
+    })
+
+    watch(
+      () => route.path,
+      () => nextTick(() => initZoom())
+    )
   }
 };

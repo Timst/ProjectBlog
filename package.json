@@ -11,6 +11,7 @@
     "@chunge16/vitepress-blogs-theme": "latest",
     "@iconify/tailwind4": "^1.2.1",
     "@tailwindcss/vite": "^4.2.2",
+    "medium-zoom": "^1.1.0",
     "tailwindcss": "^4.2.2",
     "vitepress": "^1.6.4",
     "vue": "latest"

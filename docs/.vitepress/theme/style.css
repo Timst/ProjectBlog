@@ -122,3 +122,37 @@ background: linear-gradient(
 .vp-doc h1 {
   font-family: 'Plus Jakarta Sans', sans-serif
 }
+
+.vp-doc figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.vp-doc figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.vp-doc figcaption {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--vp-c-text-2);
+  max-width: 90%;
+}
+
+.vp-doc figcaption a {
+  color: var(--vp-c-brand-1);
+  text-decoration: underline;
+}
+
+.vp-doc h2 {
+  margin-top: 24px;
+}
+
+.vp-doc h3 {
+  margin-top: 16px;
+}

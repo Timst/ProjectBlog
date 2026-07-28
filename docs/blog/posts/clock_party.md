@@ -3,7 +3,7 @@ title: Inventing a new type of party
 date: 2017-02-19T18:33:44.884Z
 tags: [JavaScript, Philips Hue]
 author: Timothy Daniel
-image: /clock/clock_tray.webp
+image: /clock/party.webp
 ---
 
 When you want to find a party theme, go to a random word generator, get "clock" and try to make the best of it
@@ -213,14 +213,15 @@ function getStrokeSize() {
 
 And that's about it. Does it work? Yeah it does. Check this out:
 
-<figure>
-  <img src="/clock/party.webp" alt="Party picture">
-</figure>
-
-This is just before the time is up. Exciting!!!
+<video src="/clock/clock.mp4" width="100%" controls>
+  Your browser does not support the video tag.
+</video>
+<figcaption>The transition between the orange sequence and the yellow one.</figcaption>
 
 ## What's next?
 
-I haven't run a clock party in a couple of years, and, since I've now given up drinking, I don't know that I ever will again. Maybe for a friend's birthday? Or maybe I repurpose that for a dinner party where we eat a dish every half hour, idk. Code-wise, there's lots that could be done. This could use a general cleanup, as my notes throughout the article make clear, and nowadays I'd have to integrate my other light systems into it. I've long toyed with the idea of integrating an audio element into it too, but didn't since I'm usually playing music on my [Google speaker group](https://support.google.com/googlehome/answer/7174267?hl=en) through Spotify and didn't want to have to figure out how to intersect with that properly.
+I haven't run a clock party in a couple of years, and, since I've now given up drinking, I don't know that I ever will again. Maybe for a friend's birthday? Or maybe I repurpose that for a dinner party where we eat a dish every half hour, idk.
+
+Code-wise, there's lots that could be done. This could use a general cleanup, as my notes throughout the article make clear, and nowadays I'd have to integrate my other light systems into it. I've long toyed with the idea of integrating an audio element into it too.
 
 There is a tiny bit of customization possible in the code as it exists: besides changing the color values, you can enable and disable the Hue integration, and make the clock last a minute, an hour, or four hours. What I really should do is to extract all the integration into their own files, and have a proper json-based config. Maybe a web UI to control the system? I'll see if I revisit that in the future.
