@@ -13,6 +13,20 @@ export default defineConfig({
     // For standard .ico files
     ['link', { rel: 'icon', type: 'image/x-icon', href: '/general/favicon.png' }]
   ],
+  transformHead({ pageData }) {
+    const head = []
+
+    const coverPath = pageData.frontmatter.image || '/general/photo.webp'
+    const fullImageUrl = `${SITE_URL}${coverPath}`
+
+    head.push(['meta', { property: 'og:image', content: fullImageUrl }])
+    head.push(['meta', { property: 'og:image:width', content: '1200' }])
+    head.push(['meta', { property: 'og:image:height', content: '630' }])
+    head.push(['meta', { name: 'twitter:card', content: 'summary_large_image' }])
+    head.push(['meta', { name: 'twitter:image', content: fullImageUrl }])
+
+    return head
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
