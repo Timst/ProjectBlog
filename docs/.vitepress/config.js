@@ -11,7 +11,22 @@ export default defineConfig({
   cleanUrls: true,
   head: [
     // For standard .ico files
-    ['link', { rel: 'icon', type: 'image/x-icon', href: '/general/favicon.png' }]
+    ['link', { rel: 'icon', type: 'image/x-icon', href: '/general/favicon.png' }],
+    [
+      'script',
+      {
+        async: '',
+        src: 'https://www.googletagmanager.com/gtag/js?id=G-Q8B2Y8LJ8S'
+      }
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-Q8B2Y8LJ8S');`
+    ]
   ],
   transformHead({ pageData }) {
     const head = []
